@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pholsoophak-reactprojecttesting-deployment
+  labels:
+    app: pholsoophak-reactprojecttesting
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pholsoophak-reactprojecttesting
+  template:
+    metadata:
+      labels:
+        app: pholsoophak-reactprojecttesting
+    spec:
+      containers:
+        - name: pholsoophak-reactprojecttesting
+          image: kshrdautopilot/pholsoophak-reactprojecttesting
+          ports:
+            - containerPort: 3000
