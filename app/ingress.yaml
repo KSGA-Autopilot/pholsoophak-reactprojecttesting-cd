@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pholsoophak-reactprojecttesting-ingress
+  namespace: pholsoophak
+spec:
+  tls:
+    - hosts:
+        - api.mengg.autos
+      secretName: api-mengg-autos-cert
+  rules:
+    - host: api.mengg.autos
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: pholsoophak-reactprojecttesting-svc
+                port:
+                  number: 3000
